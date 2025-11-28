@@ -45,8 +45,10 @@ async function getDatabase(): Promise<Db> {
   // Create new connection
   const client = new MongoClient(MONGODB_URI, {
     maxPoolSize: 10,
-    serverSelectionTimeoutMS: 5000,
+    serverSelectionTimeoutMS: 10000,
     socketTimeoutMS: 45000,
+    tls: true,
+    tlsAllowInvalidCertificates: false,
   })
   
   await client.connect()
