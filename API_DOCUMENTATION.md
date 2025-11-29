@@ -30,6 +30,7 @@ Create a new user account.
   "password": "securePassword123",
   "name": "John Doe"
 }
+<img width="2336" height="1642" alt="image" src="https://github.com/user-attachments/assets/efcb7a92-f59c-4636-b57f-7ba78e26c024" />
 \`\`\`
 
 **Response (201):**
@@ -54,6 +55,9 @@ Authenticate user with credentials.
   "email": "user@example.com",
   "password": "securePassword123"
 }
+
+<img width="2342" height="1646" alt="image" src="https://github.com/user-attachments/assets/87e6a32d-fd82-4dbe-ab1a-ae35381a5040" />
+
 \`\`\`
 
 **Response (200):**
