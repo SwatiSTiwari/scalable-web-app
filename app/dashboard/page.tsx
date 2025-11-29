@@ -76,7 +76,7 @@ export default function DashboardPage() {
               </div>
               <div>
                 <p className="text-sm text-muted-foreground">Member Since</p>
-                <p className="font-medium">{new Date(user.createdAt).toLocaleDateString()}</p>
+                <p className="font-medium">{user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "N/A"}</p>
               </div>
             </CardContent>
           </Card>
