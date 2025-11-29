@@ -54,12 +54,6 @@ A production-ready web application built with Next.js featuring user authenticat
    \`\`\`
 4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## Demo Credentials
-
-For testing purposes, a demo account is pre-seeded:
-
-- **Email:** demo@example.com
-- **Password:** demo@123
 
 ## Project Structure
 
