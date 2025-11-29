@@ -41,7 +41,7 @@ A production-ready web application built with Next.js featuring user authenticat
 
 1. Clone the repository:
    \`\`\`bash
-   git clone `<https://github.com/SwatiSTiwari/v0-scalable-web-app.git>`
+   git clone `<https://github.com/SwatiSTiwari/scalable-web-app.git>`
    cd scalable-web-app
    \`\`\`
 2. Install dependencies:
@@ -198,24 +198,6 @@ The app is structured to scale from development to production:
 
 See [SCALABILITY_GUIDE.md](./SCALABILITY_GUIDE.md) for detailed scaling roadmap.
 
-## Database
-
-Currently uses an in-memory database for demonstration. To migrate to PostgreSQL:
-
-1. Install Prisma:
-   \`\`\`bash
-   npm install @prisma/client
-   npm install -D prisma
-   \`\`\`
-2. Initialize Prisma:
-   \`\`\`bash
-   npx prisma init
-   \`\`\`
-3. Update `lib/db.ts` to use Prisma Client
-4. Define database schema in `prisma/schema.prisma`
-5. Run migrations
-
-## Troubleshooting
 
 ### Login not working
 
