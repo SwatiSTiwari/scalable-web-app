@@ -1,14 +1,17 @@
 # Scalable Web App - API Documentation
 
 ## Overview
+
 This API powers the authentication and task management system. The backend uses Express.js-style Route Handlers in Next.js but is structured to be easily extracted into a standalone Express backend.
 
 ## Base URL
+
 - Development: `http://localhost:3000/api`
-- Production: `https://yourdomain.com/api`
 
 ## Authentication
+
 All protected endpoints require either:
+
 1. Bearer token in `Authorization` header: `Authorization: Bearer {token}`
 2. HTTP-only cookie: `auth_token={token}`
 
@@ -17,6 +20,7 @@ All protected endpoints require either:
 ### Auth Endpoints
 
 #### POST /auth/signup
+
 Create a new user account.
 
 **Request:**
@@ -41,6 +45,7 @@ Create a new user account.
 \`\`\`
 
 #### POST /auth/login
+
 Authenticate user with credentials.
 
 **Request:**
@@ -64,6 +69,7 @@ Authenticate user with credentials.
 \`\`\`
 
 #### GET /auth/me
+
 Get current authenticated user.
 
 **Response (200):**
@@ -77,6 +83,7 @@ Get current authenticated user.
 \`\`\`
 
 #### POST /auth/logout
+
 Logout current user (clears auth token).
 
 **Response (200):**
@@ -89,6 +96,7 @@ Logout current user (clears auth token).
 ### Task Endpoints
 
 #### GET /tasks
+
 Get all tasks for authenticated user.
 
 **Response (200):**
@@ -107,6 +115,7 @@ Get all tasks for authenticated user.
 \`\`\`
 
 #### POST /tasks
+
 Create a new task.
 
 **Request:**
@@ -130,7 +139,8 @@ Create a new task.
 }
 \`\`\`
 
-#### GET /tasks/{id}
+#### GET /tasks/
+
 Get specific task by ID.
 
 **Response (200):**
@@ -146,7 +156,8 @@ Get specific task by ID.
 }
 \`\`\`
 
-#### PATCH /tasks/{id}
+#### PATCH /tasks/
+
 Update task (partial update supported).
 
 **Request:**
@@ -170,7 +181,8 @@ Update task (partial update supported).
 }
 \`\`\`
 
-#### DELETE /tasks/{id}
+#### DELETE /tasks/
+
 Delete a task.
 
 **Response (200):**
@@ -183,6 +195,7 @@ Delete a task.
 ## Error Responses
 
 ### 400 Bad Request
+
 Validation error or invalid input.
 \`\`\`json
 {
@@ -191,6 +204,7 @@ Validation error or invalid input.
 \`\`\`
 
 ### 401 Unauthorized
+
 Missing or invalid authentication.
 \`\`\`json
 {
@@ -199,6 +213,7 @@ Missing or invalid authentication.
 \`\`\`
 
 ### 404 Not Found
+
 Resource not found.
 \`\`\`json
 {
@@ -207,6 +222,7 @@ Resource not found.
 \`\`\`
 
 ### 500 Internal Server Error
+
 Server-side error.
 \`\`\`json
 {
@@ -231,23 +247,24 @@ Server-side error.
 To extract this into a standalone Express backend:
 
 1. **Extract API Routes**
+
    - Move `app/api/*` to `backend/routes/*`
    - Keep the same request/response structure
-
 2. **Database Migration**
+
    - Replace `lib/db.ts` with Prisma ORM
    - Use PostgreSQL or similar
-
 3. **Authentication**
+
    - Use `jsonwebtoken` package
    - Move JWT creation/verification to backend
    - Implement refresh tokens
-
 4. **Environment Variables**
+
    - Move to `.env.local` or secret management service
    - Use proper secret key management
-
 5. **CORS Configuration**
+
    - Add CORS middleware to Express app
    - Configure allowed origins
 
@@ -255,7 +272,7 @@ To extract this into a standalone Express backend:
 
 \`\`\`typescript
 // Change API base URL
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api'
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api'
 
 // Update fetch calls
 const res = await fetch(`${API_URL}/tasks`, {
@@ -268,19 +285,20 @@ const res = await fetch(`${API_URL}/tasks`, {
 ## Testing with Postman
 
 1. **Signup**
+
    - POST http://localhost:3000/api/auth/signup
-   - Body: `{"email":"test@example.com","password":"test123","name":"Test User"}`
-
+   - Body: `{"email":"swatistiwati13@gmail.com","password":"12345678","name":"swatis"}`
 2. **Login**
-   - POST http://localhost:3000/api/auth/login
-   - Body: `{"email":"test@example.com","password":"test123"}`
-   - Save the returned `token`
 
-3. **Get User**
+   - POST http://localhost:3000/api/auth/login
+   - Body: `{`"email":"swatistiwati13@gmail.com","password":"12345678"`}`
+   - Save the returned `token`
+4. **Get User**
+
    - GET http://localhost:3000/api/auth/me
    - Header: `Authorization: Bearer {token}`
+5. **Create Task**
 
-4. **Create Task**
    - POST http://localhost:3000/api/tasks
    - Header: `Authorization: Bearer {token}`
    - Body: `{"title":"My Task","description":"Task description"}`
